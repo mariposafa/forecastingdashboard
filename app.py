@@ -1,7 +1,7 @@
 import streamlit as st
 
 st.set_page_config(
-    page_title="Dashboard Forecasting JAPFA", 
+    page_title="Food Product Demand Forecasting Dashboard", 
     layout="wide",
     page_icon="📊"
 )
@@ -70,7 +70,7 @@ col_icon, col_title = st.columns([0.1, 0.9])
 with col_icon:
     st.markdown("<div style='margin-top: 10px; font-size: 40px; color: #6A11CB;'>📊</div>", unsafe_allow_html=True)
 with col_title:
-    st.title("Dashboard Forecasting JAPFA")
+    st.title("Food Product Demand Forecasting Dashboard")
 
 st.markdown("""
 <div style='text-align: center; padding: 10px 0 30px;'>
@@ -188,6 +188,6 @@ with st.expander("📚 Panduan Penggunaan"):
 st.markdown("---")
 st.markdown("""
 <div style='text-align: center; color: #666; font-size: 14px; padding: 20px;'>
-    <strong>Sistem Forecasting JAPFA v2.1</strong> • Dikembangkan oleh Kelompok 17 APTEK © 2025
+    <strong>Sistem Forecasting Food Product v2.1</strong> • Dikembangkan oleh Kelompok 17 APTEK © 2025
 </div>
 """, unsafe_allow_html=True)
