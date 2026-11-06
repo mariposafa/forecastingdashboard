@@ -1043,25 +1043,34 @@ if uploaded_file:
         'Status': ['Nol' if v == 0 else 'Bukan Nol' for v in y]
     })
     
-    # Display styled dataframe
-    st.dataframe(
-        detail_df.style
-        .format({
-            'Aktual': '{:,.0f}',
-            'Level_SES': '{:,.2f}',
-            'Forecast_SES': '{:,.2f}',
-            'Error_SES': '{:,.2f}',
-            'APE_SES': '{:.2f}%',
-            'Forecast_MA': '{:,.2f}',
-            'Error_MA': '{:,.2f}',
-            'APE_MA': '{:.2f}%'
-        })
-        .background_gradient(subset=['APE_SES', 'APE_MA'], cmap='RdYlGn_r', vmin=0, vmax=50)
-        .applymap(lambda x: 'color: #D32F2F; font-weight: bold' if x == 'Nol' else 'color: #333333', subset=['Status'])
-        .set_properties(**{'font-size': '11px'}),
-        use_container_width=True,
-        height=400
+ # Display styled dataframe
+st.dataframe(
+    detail_df.style
+    .format({
+        'Aktual': '{:,.0f}',
+        'Level_SES': '{:,.2f}',
+        'Forecast_SES': '{:,.2f}',
+        'Error_SES': '{:,.2f}',
+        'APE_SES': '{:.2f}%',
+        'Forecast_MA': '{:,.2f}',
+        'Error_MA': '{:,.2f}',
+        'APE_MA': '{:.2f}%'
+    })
+    .background_gradient(
+        subset=['APE_SES', 'APE_MA'],
+        cmap='RdYlGn_r',
+        vmin=0,
+        vmax=50
     )
+    .map(
+        lambda x: 'color: #D32F2F; font-weight: bold'
+        if x == 'Nol' else 'color: #333333',
+        subset=['Status']
+    )
+    .set_properties(**{'font-size': '11px'}),
+    width='stretch',
+    height=400
+)
     
     # ========== CONCLUSION ==========
     st.markdown("## 📝 Kesimpulan Analisis")
